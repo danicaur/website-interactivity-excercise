@@ -200,18 +200,95 @@
             //
 
             var clickMeButton = document.getElementById("click-me")
-            //var clickCountSpan = document.getElementById("click-count")
-            //var clickCount = 0
+            var clickCountSpan = document.getElementById("click-count")
+            var clickCount = 0
 
             function handleClick() {
                 console.log("---------------------")
                 console.log("YOU CLICKED ME!")
                 //clickCount += 1
-                //console.log("CLICK COUNT:", clickCount)
-                //clickCountSpan.textContent = clickCount
+                clickCount=clickCount + 1
+                console.log("CLICK COUNT:", clickCount)
+                clickCountSpan.textContent = clickCount
                 }
 
             clickMeButton.addEventListener("click", handleClick)
+
+
+                            //
+                // SELECT
+                //
+
+                var mySelect = document.getElementById("my-select")
+                console.log("DEFAULT SELECTION:", mySelect.value)
+
+                function handleSelection() {
+                console.log("SELECTION:", mySelect.value)
+                }
+
+                mySelect.addEventListener("change", handleSelection)
+
+
+                //
+// CHECKBOX
+//
+
+var myPref = document.getElementById("my-preference")
+
+function handleCheck() {
+  console.log("OPT OUT:", myPref.checked)
+}
+
+myPref.addEventListener("click", handleCheck, false)
+
+//
+// CHECKBOX (SWITCH)
+//
+
+var mySwitch = document.getElementById("my-switch")
+
+function handleSwitch() {
+  console.log("OPT OUT (SWITCH):", mySwitch.checked)
+}
+
+mySwitch.addEventListener("click", handleSwitch, false)
+
+//
+// RADIOS
+//
+
+var myRadioContainer = document.getElementById("my-radios-container")
+
+function handleRadioToggle() {
+  // h/t: https://stackoverflow.com/a/15839451
+  var selectedRadio = document.querySelector('input[name="my-radio-preference"]:checked')
+  console.log("----------------")
+  console.log("RADIO TOGGLE:", selectedRadio.value)
+}
+
+myRadioContainer.addEventListener("click", handleRadioToggle, false)
+
+
+//
+// FORM SUBMIT
+//
+
+var submitButton = document.getElementById("my-button")
+//var emailInput = document.getElementById("my-email")
+//var passwordInput = document.getElementById("my-password")
+// etc...
+
+function handleSubmit(event) {
+  event.preventDefault() // because our button happens to be in a form, we prevent the default form action that would be triggered when the form is submitted
+
+  console.log("---------------------")
+  console.log("FORM SUBMIT...")
+  //console.log("EMAIL:", emailInput.value)
+  //console.log("PASSWORD:", passwordInput.value)
+  // etc...
+}
+
+submitButton.addEventListener("click", handleSubmit)
                     </script>
                 </body>
             </html>
